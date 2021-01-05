@@ -415,6 +415,10 @@ type Message struct {
 	//
 	// optional
 	PassportData *PassportData `json:"passport_data,omitempty"`
+	// Dice is a information about the dice;
+	//
+	// optional
+	Dice *DiceData `json:"dice,omitempty"`
 }
 
 // Time converts the message timestamp into a Time.
@@ -2329,6 +2333,13 @@ type PreCheckoutQuery struct {
 	//
 	// optional
 	OrderInfo *OrderInfo `json:"order_info,omitempty"`
+}
+
+type DiceData struct {
+	// Emoji on which the dice throw animation is based. Currently, must be one of “🎲”, “🎯”, “🏀”, “⚽”, or “🎰”.
+	Emoji string `json:"emoji"`
+	// Dice can have values 1-6 for “🎲” and “🎯”, values 1-5 for “🏀” and “⚽”, and values 1-64 for “🎰”
+	Value int `json:"value"`
 }
 
 // Error is an error containing extra information returned by the Telegram API.
